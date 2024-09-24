@@ -18,7 +18,7 @@
                 <tr>
                     <th>{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
-                    <td>{{ $project->type->name }}</td>
+                    <td>{{ $project->type?->name }}</td>
                     <td>{{ $project->publication_date }}</td>
                     <td>
                         <div class="d-flex">

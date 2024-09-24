@@ -27,6 +27,18 @@
             </div>
 
             <div class="mb-3">
+                <label for="type" class="form-label">Tipologia</label>
+                <select name="type_id" class="form-select">
+                    <option value="" selected>Seleziona una tipologia</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>
+                            {{ $type->name }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="cover_img" class="form-label">Url immagine</label>
                 <input type="text" class="form-control @error('cover_img') is-invalid @enderror" name="cover_img"
                     id="cover_img" value="{{ old('cover_img') }}">

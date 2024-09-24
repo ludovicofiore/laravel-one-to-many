@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Requests\ProjectRequest;
 use App\Functions\Helper;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -25,7 +26,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -64,7 +66,9 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $projects = Project::find($id);
-        return view('admin.projects.edit', compact('projects'));
+
+        $types = Type::all();
+        return view('admin.projects.edit', compact('projects', 'types'));
     }
 
     /**
@@ -78,7 +82,7 @@ class ProjectController extends Controller
 
         // condizione per slug
         if($data['title'] === $projects->title){
-            $data['slug'] = $project->slug;
+            $data['slug'] = $projects->slug;
         }else {
             $data['slug'] = Helper::generateSlug($data['title'], Project::class);
         };

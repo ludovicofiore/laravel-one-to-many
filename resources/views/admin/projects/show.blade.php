@@ -7,7 +7,7 @@
 
         <div>
             <h4>Tipologia</h4>
-            @if ($projects->type->name === null)
+            @if ($projects->type?->name === null)
                 <p class="text-danger">Tipologia non disponibile</p>
             @else
                 <p>{{ $projects->type->name }}</p>
