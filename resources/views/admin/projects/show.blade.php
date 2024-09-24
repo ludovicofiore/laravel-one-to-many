@@ -6,6 +6,15 @@
         <h2>{{ $projects->title }}</h2>
 
         <div>
+            <h4>Tipologia</h4>
+            @if ($projects->type->name === null)
+                <p class="text-danger">Tipologia non disponibile</p>
+            @else
+                <p>{{ $projects->type->name }}</p>
+            @endif
+        </div>
+
+        <div>
             @if ($projects->cover_img === null)
                 <p class="text-danger">Immagine non disponibile</p>
             @else

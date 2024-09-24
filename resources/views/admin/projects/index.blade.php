@@ -8,7 +8,7 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Titolo</th>
-
+                <th scope="col">Tipologia</th>
                 <th scope="col">Data di pubblicazione</th>
                 <th>Azioni</th>
             </tr>
@@ -18,7 +18,7 @@
                 <tr>
                     <th>{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
-
+                    <td>{{ $project->type->name }}</td>
                     <td>{{ $project->publication_date }}</td>
                     <td>
                         <div class="d-flex">
